@@ -63,11 +63,9 @@ $(function () {
             //MAIN CARD
             todayTitle.text(cityName + firstDay.format(' MMM D, YYYY'))
 
-            var cards = $("#next5day").children("article");
+            var cards = $("article");
             console.log(cards)
             var dayOfWeek = firstDay;
-
-            cards[0].text(dayOfWeek.format('MMM D, YYYY'))
             
             for (var i = 0; i < cards.length; i++) {
                 console.log("loop is working")
