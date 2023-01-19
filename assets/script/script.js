@@ -126,10 +126,13 @@ $(function () {
     var citiesSearched = JSON.parse(localStorage.getItem("citiesSearched")) || [];
       
     function saveSearch() {
-      citiesSearched.push(inputCity)
-      localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
+      if (citiesSearched.indexOf(inputCity) === -1) {
+        citiesSearched.push(inputCity);
+      } else {
+        console.log("Duplicate value found.");
+      }
 
-      savedSearch()
+      localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
     }
 
     // TODO: FUNCTION TO CALL SAVED CITY INPUTS
@@ -148,6 +151,7 @@ $(function () {
         savedCities.append(p);
       }
     }
+    
 
     // TODO: FUNCTION TRIGGERED AT CLICK 
     function startSearch() {
