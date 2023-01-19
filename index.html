@@ -38,7 +38,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid nav justify-content-end">
-          <a class="navbar-brand" href="#">Weather Dashboard</a>
+          <p class="navbar-brand">Weather Dashboard</p>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,33 +48,36 @@
 
       <div class="container text-center">
         <div class="row align-items-start">
+
+          <!-- TODO: Search Column -->
           <div id= "searchColumn" class="col-3">
-            <!-- TODO: Search Column -->
             <p id="titleSearch" class="fs-2">Search for a city:</p>
             <input id="searchText"type="text" class="form-control" aria-label="Text input with dropdown button">
             <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
             <hr class="division">
-            <ul id="savedCities">
-            </ul>
+            <div id="savedCities">
+              <p>test</p>
+            </div>
           </div>
+
           <div id= "resultColumn" class="col">
             <!-- TODO: Menu Column -->
             <!-- MAIN CARD THAT DISPLAYS TODAY'S TEMPERATURE  -->
             <div id="today" class="mb-3 mb-sm-0">
                 <div class="card">
-                  <div class="card-body">
+                  <div id="mainCard" class="card-body">
                     <h5 id="todayTitle" class="card-title">Nearest Date for Information</h5>
                     <img src="">
-                    <p id="tempMain" class="card-text">Temperature</p>
-                    <p id="windMain" class="card-text">Wind</p>
-                    <p id="humidityMain" class="card-text">Humidity</p>
+                    <p id="temp" class="card-text">Temperature</p>
+                    <p id="wind" class="card-text">Wind</p>
+                    <p id="humidity" class="card-text">Humidity</p>
                   </div>
                 </div>
               </div>
 
             <!-- CARDS TO DISPLAY FIVE DAYS OF THE WEEK AND CORRESPONDING TEMPERATURE -->
             <div id="next5day" class="row justify-content-center">
-                <div class="col-sm-2 mb-3 mb-sm-0">
+                <div class="col-sm-2 mb-3 mb-sm-0 cards">
                   <div class="card">
                     <article class="card-body">
                       <h5 id="title" class="card-title">1st Day</h5>
@@ -85,7 +88,7 @@
                     </article>
                   </div>
                 </div>
-                <div id="next5day" class="col-sm-2">
+                <div id="next5day" class="col-sm-2 cards">
                   <div class="card">
                     <article class="card-body">
                       <h5 id="title" class="card-title">2nd Day</h5>
@@ -96,7 +99,7 @@
                     </article>
                   </div>
                 </div>
-                <div id="next5day" class="col-sm-2 mb-3 mb-sm-0">
+                <div id="next5day" class="col-sm-2 mb-3 mb-sm-0 cards">
                     <div class="card">
                       <article class="card-body">
                         <h5 id="title" class="card-title">3rd Day</h5>
@@ -107,7 +110,7 @@
                       </article>
                     </div>
                   </div>
-                  <div id="next5day" class="col-sm-2">
+                  <div id="next5day" class="col-sm-2 cards">
                     <div class="card">
                       <article class="card-body">
                         <h5 id="title" class="card-title">4th Day</h5>
@@ -118,7 +121,7 @@
                       </article>
                     </div>
                   </div>
-                  <div id="next5day" class="col-sm-2">
+                  <div id="next5day" class="col-sm-2 cards">
                     <div class="card">
                       <article class="card-body">
                         <h5 id="title" class="card-title">5th Day</h5>

@@ -5,6 +5,7 @@ $(function () {
 
     // DOM VARIABLES
     var searchBtn = $("#searchBtn")
+    var saved = $("savedCities").children("p")
 
     // GEOCODING API VARIABLES 
     var lat;
@@ -60,12 +61,29 @@ $(function () {
             var firstDay = today.add(9, "hour")
             console.log(cityName) //check for bugs
 
-            //MAIN CARD
-            todayTitle.text(cityName + firstDay.format(' MMM D, YYYY'))
-
             var cards = $("article");
             console.log(cards)
             var dayOfWeek = firstDay;
+
+            //TODO: MAIN CARD
+            // Select title elements
+            var mainCard = $("#mainCard")
+            var symbol = $(mainCard).children("img");
+            var temp = $(mainCard).children("#temp");
+            var wind = $(mainCard).children("#wind");
+            var humidity = $(mainCard).children("#humidity");
+
+            var icon = data.list[0].weather[0].icon;
+            var kelvin = (data.list[0].main.temp);
+            var celsius = kelvin - 273.15;
+            var mph = (data.list[0].main.temp);
+            var hum = (data.list[0].wind.speed);
+
+            todayTitle.text(cityName + firstDay.format(' MMM D, YYYY'))
+            symbol.attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
+            temp.text("Temperature: " + celsius.toFixed(2) + " °C");
+            wind.text("Temperature: " + mph.toFixed(2) + " MPH");
+            humidity.text("Temperature: " + hum.toFixed(2) + " %");
             
             for (var i = 0; i < cards.length; i++) {
                 console.log("loop is working")
@@ -85,10 +103,19 @@ $(function () {
                 var x = (i + 1) * 8 - 1
                 console.log(x) //checking for bugs
 
-                // Variables selection inside data 
-                var icon = data.list[x].weather[0].icon
+                // Variable selection inside data 
+                var icon = data.list[x].weather[0].icon;
+                var kelvin = (data.list[x].main.temp);
+                var celsius = kelvin - 273.15;
+                var mph = (data.list[x].main.temp);
+                var hum = (data.list[x].wind.speed);
+
+                // Information displayed
                 console.log(icon)
-                symbol.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
+                symbol.attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
+                temp.text("Temperature: " + celsius.toFixed(2) + " °C");
+                wind.text("Temperature: " + mph.toFixed(2) + " MPH");
+                humidity.text("Temperature: " + hum.toFixed(2) + " %");
             }
         });
     }
@@ -99,7 +126,12 @@ $(function () {
         getApiGeocoding();
     }
 
-    // EVENT LISTENER FOR SEARCH BUTTON THAT RUNS CORRESPONDING FUNCTIONS 
+    function savedSearch() {
+      
+    }
+
+    // EVENT LISTENERS
     searchBtn.on("click", startSearch);
+    saved.on("click", savedSearch);
 
 });

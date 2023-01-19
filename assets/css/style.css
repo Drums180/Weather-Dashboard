@@ -1,8 +1,53 @@
 :root{
     --lightcolor: #ccc;
+    --darkcolor: rgb(29, 26, 39);
+    --white: white;
+    --backcolor: rgb(217, 210, 253);
+    --blue: rgb(74, 74, 246);
+}
+
+/* NAV  */
+#searchBtn {
+    margin: 5% 0% 0% 0%;
+}
+
+.nav {
+    background-color: var(--darkcolor);
+}
+
+.nav p {
+    color: var(--white);
+    margin: 0.2%;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+/* SEARCH COLUMN  */
+#searchColumn {
+    width: 20;
+    height: 100%;
 }
 
 .division {
     border: 2px;
     color: var(--lightcolor)
 }
+
+#savedCities p {
+    text-align: center;
+    font-size: 1.3rem;
+    border: 1px solid var(--lightcolor);
+    border-radius: 5px;
+    cursor: pointer; 
+    /* makes the cursos indicate that this can be clicked */
+}
+
+#savedCities p:active {
+    color: var(--blue);
+}
+
+/* WEATHER CARDS  */
+.cards{
+    width: 20%;
+}
+
