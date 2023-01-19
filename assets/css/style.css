@@ -1,0 +1,8 @@
+:root{
+    --lightcolor: #ccc;
+}
+
+.division {
+    border: 2px;
+    color: var(--lightcolor)
+}
