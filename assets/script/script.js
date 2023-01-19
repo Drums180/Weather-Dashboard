@@ -68,6 +68,7 @@ $(function () {
             var dayOfWeek = firstDay;
 
             cards[0].text(dayOfWeek.format('MMM D, YYYY'))
+            
             for (var i = 0; i < cards.length; i++) {
                 console.log("loop is working")
                 // Select title elements / dates using dayjs
