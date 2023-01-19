@@ -79,7 +79,16 @@ $(function () {
 
                 dayOfWeek = dayOfWeek.add(1, "day")
                 date.text(dayOfWeek.format('MMM D, YYYY'))
-                console.log(dayOfWeek)
+                console.log(dayOfWeek) //checking for bugs
+
+                // MATHEMATICAL OPERATION IN ORDER TO HAVE DATA A DAY APPART
+                var x = (i + 1) * 8 - 1
+                console.log(x) //checking for bugs
+
+                // Variables selection inside data 
+                var icon = data.list[x].weather[0].icon
+                console.log(icon)
+                symbol.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
             }
         });
     }
