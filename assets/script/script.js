@@ -4,22 +4,22 @@
 $(function () {
 
     // DOM VARIABLES
-    var searchBtn = $("#searchBtn")
-    var saved = $("savedCities").children("p")
+    var searchBtn = $("#searchBtn");
+    var savedCities = $("#savedCities");
+    var saved = $("#savedCities").children("p");
 
     // GEOCODING API VARIABLES 
     var lat;
     var lon;
+    var inputCity;
 
     // FORECASTING API VARIABLES 
     var todayTitle = $("#todayTitle")
-    var lat;
-    var lon;
 
     // FUNCTION TO CALL AND USE GEOCODING API 
     function getApiGeocoding() {
         // TODO: Add comment in order to explain
-        var inputCity = $("#searchText").val();
+        inputCity = $("#searchText").val();
         console.log(inputCity)
 
         // fetch request gets a list of all the repos for the node.js organization
@@ -117,7 +117,36 @@ $(function () {
                 wind.text("Temperature: " + mph.toFixed(2) + " MPH");
                 humidity.text("Temperature: " + hum.toFixed(2) + " %");
             }
+
+            saveSearch()
         });
+    }
+
+    // TODO: FUNCTION TO SAVE CITY INPUT
+    var citiesSearched = JSON.parse(localStorage.getItem("citiesSearched")) || [];
+      
+    function saveSearch() {
+      citiesSearched.push(inputCity)
+      localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
+
+      savedSearch()
+    }
+
+    // TODO: FUNCTION TO CALL SAVED CITY INPUTS
+    function savedSearch() {
+      var citiesSearched = localStorage.getItem("citiesSearched");
+      citiesSearched = JSON.parse(citiesSearched);
+      console.log(citiesSearched); //checking for bugs
+
+      for (var i = 0; i < citiesSearched.length; i++) {
+        var cityX = citiesSearched[i];
+        console.log(cityX) //checking for bugs
+
+        var p = document.createElement("p");
+        p.textContent = cityX ;
+
+        savedCities.append(p);
+      }
     }
 
     // TODO: FUNCTION TRIGGERED AT CLICK 
@@ -126,9 +155,7 @@ $(function () {
         getApiGeocoding();
     }
 
-    function savedSearch() {
-      
-    }
+    
 
     // EVENT LISTENERS
     searchBtn.on("click", startSearch);
