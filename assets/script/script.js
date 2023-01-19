@@ -6,7 +6,7 @@ $(function () {
     // DOM VARIABLES
     var searchBtn = $("#searchBtn");
     var savedCities = $("#savedCities");
-    var saved = $("#savedCities").children("p");
+
 
     // GEOCODING API VARIABLES 
     var lat;
@@ -154,11 +154,17 @@ $(function () {
         console.log("function worked"); //check for bugs
         getApiGeocoding();
     }
-
     
 
     // EVENT LISTENERS
     searchBtn.on("click", startSearch);
-    saved.on("click", savedSearch);
+
+    savedCities.on("click", "p", function() {
+      inputCity = $(this).text();
+      $("#searchText").val(inputCity);
+      getApiGeocoding();
+  });
+
+    savedSearch()
 
 });
