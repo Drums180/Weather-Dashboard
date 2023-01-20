@@ -25,7 +25,7 @@ $(function () {
         // fetch request gets a list of all the repos for the node.js organization
         var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + inputCity + "&limit=" + 1 + "&appid=6597030ea98688b08543f5fe62ef6b3e";
       
-        fetch(requestUrl, {mode: 'no-cors'})
+        fetch(requestUrl)
           .then(function (response) {
             return response.json();
           })
@@ -49,7 +49,7 @@ $(function () {
         
         var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=6597030ea98688b08543f5fe62ef6b3e";
       
-        fetch(requestUrl, {mode: 'no-cors'})
+        fetch(requestUrl)
           .then(function (response) {
             return response.json();
           })
