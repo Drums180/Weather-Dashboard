@@ -80,7 +80,7 @@ $(function () {
             var hum = (data.list[0].wind.speed);
 
             todayTitle.text(cityName + firstDay.format(' MMM D, YYYY'))
-            symbol.attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
+            symbol.attr("src", "https://openweathermap.org/img/w/" + icon + ".png");
             temp.text("Temperature: " + celsius.toFixed(2) + " °C");
             wind.text("Temperature: " + mph.toFixed(2) + " MPH");
             humidity.text("Temperature: " + hum.toFixed(2) + " %");
